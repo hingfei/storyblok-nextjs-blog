@@ -1,9 +1,11 @@
 import { getStoryblokApi } from "@/lib/storyblok";
 import { StoryblokStory } from "@storyblok/react/rsc";
+import { draftMode } from "next/headers";
 
 const fetchLandingPage = async (lang) => {
+    const { isEnabled } = await draftMode();
     const params = {
-        version: "draft",
+        version: process.env.NODE_ENV === "development" || isEnabled ? "draft" : "published",
         language: lang,
     };
     const api = getStoryblokApi();
