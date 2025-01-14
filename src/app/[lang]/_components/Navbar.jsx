@@ -1,10 +1,12 @@
 import React from "react";
 import Link from "next/link";
+import { storyblokEditable } from "@storyblok/react";
 
 const Navbar = ({ blok }) => {
     const { title, cta_button_text } = blok;
     return (
         <nav
+            {...storyblokEditable(blok)}
             className={
                 "container relative mx-auto flex w-full flex-wrap items-center justify-between p-8 xl:px-0"
             }
@@ -16,12 +18,8 @@ const Navbar = ({ blok }) => {
             </div>
 
             <div className={"nav__item mr-3 hidden items-center space-x-4 lg:flex"}>
-                <Link href={"/zh"}>
-                    Chinese
-                </Link>
-                <Link href={"/en"}>
-                    English
-                </Link>
+                <Link href={"/zh"}>Chinese</Link>
+                <Link href={"/en"}>English</Link>
                 <a
                     href={"#contact"}
                     className={"rounded-md bg-indigo-600 px-6 py-2 text-white md:ml-5"}
