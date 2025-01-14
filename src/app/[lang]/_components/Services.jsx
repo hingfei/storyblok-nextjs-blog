@@ -1,9 +1,10 @@
 import React from "react";
+import { storyblokEditable } from "@storyblok/react";
 
 const Services = ({ blok }) => {
     const { title, service_cards } = blok;
     return (
-        <section className={"pb-32 pt-24"}>
+        <section {...storyblokEditable(blok)} className={"pb-32 pt-24"}>
             <h2 className={"mb-20 text-center text-4xl font-bold"}>{title}</h2>
             <div className={"mx-auto max-w-screen-xl px-4 py-4"}>
                 <div

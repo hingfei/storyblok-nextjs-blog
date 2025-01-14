@@ -1,11 +1,12 @@
 import React from "react";
 import Image from "next/image";
 import Container from "@/app/[lang]/_components/Container";
+import { storyblokEditable } from "@storyblok/react";
 
 const Testimonials = ({ blok }) => {
     const { title, testimonial_cards } = blok;
     return (
-        <section className={"bg-zinc-950 pb-32 pt-24"}>
+        <section {...storyblokEditable(blok)} className={"bg-zinc-950 pb-32 pt-24"}>
             <Container>
                 <h2 className={"mb-20 text-center text-4xl font-bold"}>{title}</h2>
                 <div className={"grid gap-10 lg:grid-cols-2"}>

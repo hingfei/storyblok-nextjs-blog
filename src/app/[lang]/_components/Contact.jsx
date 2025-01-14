@@ -1,10 +1,14 @@
 import React from "react";
 import Container from "@/app/[lang]/_components/Container";
+import { storyblokEditable } from "@storyblok/react";
 
 const Contact = ({ blok }) => {
     const { title, description, email, phone, location } = blok;
     return (
-        <Container className="py-16 flex w-full flex-col items-center justify-center text-center">
+        <Container
+            {...storyblokEditable(blok)}
+            className="flex w-full flex-col items-center justify-center py-16 text-center"
+        >
             <div className="py-10 text-xl" id="contact">
                 <h2 className="mb-8 text-center text-4xl font-bold">{title}</h2>
                 <p className="pb-8">{description}</p>

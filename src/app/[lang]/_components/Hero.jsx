@@ -2,12 +2,13 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Container from "@/app/[lang]/_components/Container";
+import { storyblokEditable } from "@storyblok/react";
 
-const Hero = ({blok}) => {
+const Hero = ({ blok }) => {
     const { title, description, cta_button_text, image } = blok;
 
     return (
-        <main>
+        <main {...storyblokEditable(blok)}>
             <Container className="pb-18 flex flex-wrap pt-28">
                 <div className="flex w-full items-center lg:w-1/2 lg:px-10">
                     <div className="mb-8 max-w-2xl pr-3">
@@ -33,9 +34,7 @@ const Hero = ({blok}) => {
                         src={image.filename}
                         width="529"
                         height="529"
-                        className={
-                            "hidden aspect-square rounded-full object-cover lg:inline"
-                        }
+                        className={"hidden aspect-square rounded-full object-cover lg:inline"}
                         alt={image.alt}
                         loading="eager"
                     />
