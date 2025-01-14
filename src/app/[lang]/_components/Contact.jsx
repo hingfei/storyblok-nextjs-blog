@@ -5,11 +5,8 @@ import { storyblokEditable } from "@storyblok/react";
 const Contact = ({ blok }) => {
     const { title, description, email, phone, location } = blok;
     return (
-        <Container
-            {...storyblokEditable(blok)}
-            className="flex w-full flex-col items-center justify-center py-16 text-center"
-        >
-            <div className="py-10 text-xl" id="contact">
+        <Container className="flex w-full flex-col items-center justify-center py-16 text-center">
+            <div {...storyblokEditable(blok)} className="py-10 text-xl" id="contact">
                 <h2 className="mb-8 text-center text-4xl font-bold">{title}</h2>
                 <p className="pb-8">{description}</p>
                 <span className="mb-2 block">
